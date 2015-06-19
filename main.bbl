@@ -1,0 +1,9 @@
+\begin{thebibliography}{1}
+
+\bibitem{dctcp}
+{\sc Alizadeh, M., Greenberg, A., Maltz, D.~A., Padhye, J., Patel, P.,
+  Prabhakar, B., Sengupta, S., and Sridharan, M.}
+\newblock Data center tcp (dctcp).
+\newblock In {\em ACM SIGCOMM '10}.
+
+\end{thebibliography}

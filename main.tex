@@ -1,0 +1,201 @@
+%\documentclass[twocolumn]{sig-alternate}
+\documentclass{sig-alternate-10pt}
+%\documentclass[twocolumn,10pt]{infocom}
+%\documentclass[twocolumn,10pt]{IEEEtran_v15}
+%\documentclass[twocolumn,10pt]{IEEEtran}
+%\documentclass[twocolumn,10pt]{article}
+%\usepackage[sort,nocompress,space]{cite}
+%\documentclass[twocolumn]{sig-alt-hotnetscr}
+\usepackage{url}
+\usepackage[sort,space]{cite}
+\usepackage{lineno}
+\renewcommand\linenumberfont{\normalfont\bfseries\small}
+\usepackage{pifont}
+\usepackage{epsfig,epsf,url,amssymb}
+\usepackage{tabularx}
+\usepackage[boxed]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\newtheorem{mydef}{Definition}
+\usepackage{rotating}
+%\usepackage{color}
+%\usepackage{amsthm}
+%\usepackage{amssymb}
+%\usepackage[numbers,sort&compress]{natbib}
+\usepackage{wrapfig}
+\usepackage{times}
+\long\def\comment#1{}
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{lscape}
+\usepackage{stmaryrd}
+\usepackage{hhline}
+\usepackage{textcomp,booktabs}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{colortbl}
+\definecolor{mygray}{gray}{.9}
+\definecolor{mypink}{gray}{.9}
+\definecolor{mycyan}{cmyk}{.3,0,0,0}
+\usepackage{epstopdf}
+\usepackage[bf,skip=0pt]{caption}
+
+\renewcommand{\captionfont}{\bf}
+%\usepackage{subfigure}
+
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\eg}{{\it e.g.}}
+\newcommand{\etal}{{\it et al.~}}
+\newcommand{\etc}{{\it etc.}}
+\newcommand{\ie}{{\it i.e.}}
+\newcommand{\tablecapspace}{{\vspace{-0.1in}}}
+\newcommand{\tablespace}{{\vspace{-0.05in}}}
+\newcommand{\picspace}{{\vspace{-0.1in}}}
+\renewcommand{\baselinestretch}{1}
+\renewcommand{\arraystretch}{1.05}      % make the space between tabular lines larger
+\newcommand{\capspace}{}           % control space between figure/table and caption
+\newcommand{\paragraphb}[1]{\vspace{0.05in}\noindent{\bf #1}}
+
+\newcommand{\paraspace}{\vspace{0.05in}}
+\newcommand{\parab}[1]{\paraspace\noindent{\bf #1} }
+\newcommand{\parae}[1]{\paraspace\noindent{\em #1} }
+\newcommand{\parabe}[1]{\paraspace\noindent{\bf \em #1} }
+
+%\newcommand{\parab}[1]{\noindent{\bf #1} }
+%\newcommand{\parae}[1]{\noindent{\em #1} }
+%\newcommand{\parabe}[1]{\noindent{\bf \em #1} }
+
+\def\TODO#1{\textcolor{red}{TODO: #1}}
+
+\setlength{\textheight}{9.3in}
+\setlength{\columnsep}{1.4pc}
+\setlength{\textwidth}{7.1in}
+%\linespread{.98}
+
+\newcommand{\sys}{{\textsf{Karuna}}\xspace}
+
+\newcommand{\subcaption}[1]{\centerline{#1}\vspace{0.1in}}
+\long\def\comment#1{}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{icompact}{
+  \begin{list}{$\bullet$}{
+    \parsep 1pt plus 1pt
+    \partopsep 1pt plus 1pt
+    \topsep 1pt plus 2pt minus 1pt
+    \itemsep 1.5pt plus 1pt
+    \parskip 0pt plus 2pt
+    \leftmargin 0.15in}
+       }
+  {\normalsize\end{list}}
+
+\setlength{\parskip}{0cm}
+\setlength{\parindent}{1em}
+
+%\setlength{\oddsidemargin}{-0.25in}
+%\setlength{\oddsidemargin}{-0.3in}
+%\addtolength{\oddsidemargin}{-0.1in}
+%\oddsidemargin=-0.1in % leftmargin is 1 inch
+
+%%%%%%%% to calculate the time %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\hour \newcount\minute
+\hour=\time  \divide \hour by 60
+\minute=\time
+\loop \ifnum \minute > 59 \advance \minute by -60 \repeat
+\def\drafttime{\ifnum \hour<13 \number\hour:%
+                      \ifnum \minute<10 0\fi
+                      \number\minute
+                      \ifnum \hour<12 \ AM\else \ PM\fi
+         \else \advance \hour by -12 \number\hour:%
+                      \ifnum \minute<10 0\fi
+                      \number\minute \ PM\fi}
+\def\timestamp{\today \ \drafttime}
+
+\usepackage{multirow}
+\usepackage{rotating}
+
+\def\sharedaffiliation{%
+\end{tabular}
+\begin{tabular}{c}}
+
+\begin{document}
+
+%\conferenceinfo{SIGCOMM,} {XXXXXX, XXXXX, XXXXX, XXXXX.} %
+%\CopyrightYear{2009} \crdata{1-59593-308-5/06/0009}
+
+\title{Title}
+\author{Paper \#\#, \#\# pages, \timestamp}
+%\author{\timestamp}
+%\numberofauthors{5} %  in this sample file, there are a *total*
+%% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+%% reasons) and the remaining two appear in the \additionalauthors section.
+%%
+%\author{
+%% You can go ahead and credit any number of authors here,
+%% e.g. one 'row of three' or two rows (consisting of one row of three
+%% and a second row of one, two or three).
+%%
+%% The command \alignauthor (no curly braces needed) should
+%% precede each author name, affiliation/snail-mail address and
+%% e-mail address. Additionally, tag each line of
+%% affiliation/address with \affaddr, and tag the
+%% e-mail address with \email.
+%%
+%% 1st. author
+%\alignauthor
+%Li Chen\\
+%       \affaddr{SING Lab, HKUST}
+%       \email{lchenad@ust.hk}
+%% 2nd. author
+%\alignauthor
+%Kai Chen\\
+%       \affaddr{SING Lab, HKUST}
+%       \email{kaichen@cse.ust.hk}
+%% 3rd. author
+%\alignauthor Wei Bai\\
+%       \affaddr{SING Lab, HKUST}
+%       \email{wbaiab@ust.hk}
+%\and  % use '\and' if you need 'another row' of author names
+%% 4th. author
+%\alignauthor Haitao Wu\\
+%       \affaddr{Microsoft}
+%       \email{hwu@microsoft.com}
+%% 5th. author
+%\alignauthor Mohammad Alizadeh\\
+%       \affaddr{Cisco}
+%       \email{moattar@cisco.com}
+%}
+
+\maketitle
+\setlength{\textfloatsep}{1pt}
+
+%\vspace{-0.05in}
+%\input{sec/abstract.tex}
+\input{sec/introduction.tex}
+%\input{sec/motivation.tex}
+%\input{sec/design.tex}
+%\input{sec/optimization.tex}
+%\input{sec/implementation.tex}
+%\input{sec/evaluation.tex}
+%\input{sec/discussion.tex}
+%\input{sec/relatedwork.tex}
+%\input{sec/conclusion.tex}
+%\input{sec/appendix.tex}
+%\begin{scriptsize}
+%\vspace{-0.05in}
+%\begin{small}
+\clearpage
+\bibliographystyle{acm}
+\bibliography{reference}
+%\end{small}
+%\clearpage
+%\end{scriptsize}
+%\clearpage
+%\input{sections/appendix.tex}
+
+\end{document}
